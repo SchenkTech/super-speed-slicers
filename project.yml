@@ -1,0 +1,48 @@
+name: SuperSpeedSlicers
+options:
+  bundleIdPrefix: com.games
+  deploymentTarget:
+    iOS: "16.0"
+  xcodeVersion: "15.4"
+  swift: "6.0"
+
+targets:
+  SuperSpeedSlicers:
+    type: application
+    platform: iOS
+    deploymentTarget: "16.0"
+    sources:
+      - path: SuperSpeedSlicers
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.games.SuperSpeedSlicers
+        SWIFT_VERSION: 6.0
+        TARGETED_DEVICE_FAMILY: "1,2"
+        INFOPLIST_FILE: SuperSpeedSlicers/Info.plist
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+    info:
+      path: SuperSpeedSlicers/Info.plist
+      properties:
+        CFBundleName: Super Speed Slicers
+        CFBundleDisplayName: Super Speed Slicers
+        UILaunchScreen: {}
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+          UISceneConfigurations:
+            UIWindowSceneSessionRoleApplication:
+              - UISceneConfigurationName: Default Configuration
+                UISceneDelegateClassName: $(PRODUCT_MODULE_NAME).SceneDelegate
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+          - UIInterfaceOrientationPortrait
+    entitlements:
+      path: SuperSpeedSlicers/SuperSpeedSlicers.entitlements
+    dependencies:
+      - sdk: SpriteKit.framework
+      - sdk: GameKit.framework
+      - sdk: AVFoundation.framework
+      - sdk: CryptoKit.framework
