@@ -2,6 +2,8 @@
 
 Standard design scaffold for building new physics-puzzle games in this family. Derived from the shared patterns across Fulcrum, Pendulum, and Arch.
 
+> **Reference implementations:** [Cracks](https://github.com/SchenkTech/cracks) and [Gravity Arc](https://github.com/SchenkTech/gravity-arc) are the primary examples to study when building a new game. They demonstrate all patterns in this scaffold with production-quality code.
+
 ---
 
 ## 1. Core Identity
@@ -546,7 +548,7 @@ When starting a new game in this family:
 16. **Add Daily Challenge** - Date-seeded single level
 17. **Write tests** - Generator determinism, checker logic, score integrity
 18. **Verify all levels completable** - Automated or manual playthrough
-19. **Generate app icon** - `generate_icon.swift`
+19. **Generate app icon** - `generate_icon.swift`. **Do not include the game name on the icon** — iOS already displays the name below the icon, so text on the icon is redundant and reduces visual impact at small sizes
 20. **Write README.md** - Game design document
 
 ---
@@ -563,3 +565,43 @@ When starting a new game in this family:
 8. **Progressive disclosure** - One new idea per world, tutorial on first encounter
 9. **Satisfying feedback** - Every interaction gets sound + haptic + visual response
 10. **No monetization friction** - No ads, no energy, no paywalls
+
+
+---
+
+## Privacy Policy & Support Pages
+
+Every released app **must** have a privacy policy and support page hosted in the [schenktech-policy](https://github.com/SchenkTech/schenktech-policy) repository. These are required by Apple for App Store submission.
+
+### What to create
+
+In the `schenktech-policy` repo, create a directory matching the app's kebab-case name (e.g., `gravity-arc/`) containing:
+
+1. **`privacy.html`** — Privacy policy covering:
+   - Information collection (typically: none)
+   - Game Center integration (if applicable)
+   - iCloud sync (if applicable)
+   - In-app purchases (if applicable)
+   - Third-party services (ads, analytics — if applicable)
+   - Data storage (local on device)
+   - Children's privacy
+   - Contact info (GitHub issues link)
+
+2. **`support.html`** — Support page covering:
+   - Brief app description
+   - Common questions / FAQ specific to the app's mechanics
+   - Bug report / feature request link (GitHub issues)
+   - Contact info
+   - Link to privacy policy
+
+### When to create
+
+Add these pages before submitting to the App Store. Update the root `index.html` in `schenktech-policy` to include a link to the new app's pages.
+
+### URL format
+
+Once deployed, the URLs will be:
+- Privacy: `https://schenktech.github.io/schenktech-policy/<app-name>/privacy.html`
+- Support: `https://schenktech.github.io/schenktech-policy/<app-name>/support.html`
+
+These URLs should be referenced in the App Store Connect listing for the app.
